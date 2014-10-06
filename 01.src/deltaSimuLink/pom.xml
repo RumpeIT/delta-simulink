@@ -1,0 +1,144 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.se_rwth.deltasl</groupId>
+	<artifactId>de.deltasimulink</artifactId>
+	<name>Delta Simulink</name>
+	<version>0.2.1-SNAPSHOT</version>
+
+	<properties>
+		<ma-version>2.0.0-SNAPSHOT</ma-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<version>4.8.2</version>
+		</dependency>
+		<dependency>
+			<groupId>de.monticore.lang.deltamontiarc</groupId>
+			<artifactId>de.deltamontiarc.fe</artifactId>
+			<version>${ma-version}</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>matlabcontrol</groupId>
+			<artifactId>matlabcontrol</artifactId>
+			<version>4.0.0</version>
+			
+		</dependency>
+<!-- 		  <dependency> -->
+<!--                 <groupId>net.sf.jung</groupId> -->
+<!--                 <artifactId>jung2</artifactId> -->
+<!--                 <version>2.0.1</version> -->
+<!--                 <type>pom</type>                  -->
+<!--         </dependency> -->
+<!--    <dependency> -->
+<!--         <groupId>net.sf.jung</groupId> -->
+<!--             <artifactId>jung-graph-impl</artifactId> -->
+<!--             <version>2.0.1</version> -->
+<!-- </dependency> -->
+		<!-- the following eclipse dependencies are a workaround to resolve missing 
+			eclipse classes, which are usually resolved by eclipse PDE; in particular 
+			these dependencies do probably not match the eclipse version this plugin 
+			is built against -->
+		<dependency>
+			<groupId>org.eclipse.swt.win32.win32</groupId>
+			<artifactId>x86</artifactId>
+			<version>3.3.0-v3346</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.ui</groupId>
+			<artifactId>editors</artifactId>
+			<version>3.3.0-v20070606-0010</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.0-v_771</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>ui</artifactId>
+			<version>3.3.0-v20070607-0010</version>
+			
+		</dependency>
+		<!-- end of eclipse dependencies workaround -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifestFile>${basedir}/src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+				<executions>
+					<!-- generate source jar -->
+					<execution>
+						<id>generate-source-jar</id>
+						<configuration>
+							<classifier>source</classifier>
+							<classesDirectory>src/main/java</classesDirectory>
+						</configuration>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- Create source java jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+			</plugin>
+
+    
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>fatjar</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack dependencies</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>unpack-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/classes</outputDirectory>
+								    <includes>**\/*.class</includes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	
+</project>
