@@ -10,13 +10,13 @@ The `master` branch is the latest (stable) release. The `development` branch is
 where the development takes place.<br/>
 If you want to contribute code, please issue a pull request (on our 
 [GitHub project site]()) into the `development` branch.<br/>
-Note: You will need to add your name to the [ICLA](./ICLA.pdf) (Individual Contributor 
+Note: You will need to add your name to the [ICLA](./00.org/RIT_CLA_Delta-Simulink.md) (Individual Contributor 
 License Agreement) for your contribution to be accepted. Please follow the 
 instructions in the ICLA on how to submit it.
 
 
 ## Code Guidelines
-Please use [se-eclipse-javastyle.epf](./convetions/se-eclipse-javastyle.epf) to 
+Please use [se-eclipse-javastyle.epf](./00.org/convetions/se-eclipse-javastyle.epf) to 
 format your code if possible.<br/>
 Only contribute code which passes all unit tests.
 
@@ -26,8 +26,8 @@ Please use the GitHub project [issue tracker](https://github.com/RumpeIT/delta-s
 
 
 ## Version
-### 1.0.0
- * Initial release.
+### 1.2.0
+ * Initial public release.
 
 ## License
 [LGPL V3.0](./LICENSE-LGPL.md)

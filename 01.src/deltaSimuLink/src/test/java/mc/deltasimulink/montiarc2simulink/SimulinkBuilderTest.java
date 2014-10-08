@@ -26,6 +26,7 @@ import mc.deltasimulink.SimulinkFunction;
 import mc.deltasimulink.SimulinkParameter;
 import mc.deltasimulink.helper.TestHelper;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class SimulinkBuilderTest extends TestHelper {
@@ -35,7 +36,7 @@ public class SimulinkBuilderTest extends TestHelper {
 	private static final String ROOT_PATH = ".." + SEP + "02.simulink" + SEP;
 	
 	
-	@Test
+	@Ignore @Test
 	public void testBuild() {
 		
 		connect();

@@ -263,7 +263,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Test
+    @Ignore @Test
     public void testInvalidCfgFile() {
         try {
             new DeltaSimulinkTool(new String[]{
@@ -278,7 +278,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Test
+    @Ignore @Test
     public void testFolderCfgFile() {
         try {
             new DeltaSimulinkTool(new String[]{
@@ -293,7 +293,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Test
+    @Ignore @Test
     public void testFileOutputFile() {
         try {
             new DeltaSimulinkTool(new String[]{
