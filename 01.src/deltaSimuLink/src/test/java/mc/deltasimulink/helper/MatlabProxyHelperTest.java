@@ -46,7 +46,7 @@ public class MatlabProxyHelperTest {
 		disconnect();
 	}
 
-	@Test
+	@Ignore @Test
 	public void testConnectAndDisconnect() {
 		assertTrue(matlab.connect());
 		assertTrue(matlab.isConnected());
@@ -117,7 +117,7 @@ public class MatlabProxyHelperTest {
 		
 	}
 	
-	@Test
+	@Ignore @Test
 	public void testHandles() {
 		connect();
 		
@@ -130,7 +130,7 @@ public class MatlabProxyHelperTest {
 		assertEquals("In1", matlab.returningFeval("get_param", handle, "Name"));
 	}
 	
-	@Test
+	@Ignore @Test
 	public void testConnectors() {
 		connect();
 		
@@ -148,7 +148,7 @@ public class MatlabProxyHelperTest {
 		
 	}
 	
-	@Test
+	@Ignore @Test
 	public void testClearPath() {
 	    matlab.connect();
 	    matlab.addFolderAndSubsToPath(new File("inputForTests/simulink"));
