@@ -1,0 +1,166 @@
+body {
+ max-width: 800px;
+ margin: 20px auto;
+}
+
+#intro {
+ margin: 50px 0px;
+}
+
+#intro .version {
+ color: #C3C3C3;
+}
+
+#nav {
+ float: right;
+ width: 200px;
+ margin-right: 20px;
+ margin-top: -40px;
+}
+
+#nav h3 {
+ margin-top: 0;
+ text-align: center;
+}
+
+#nav ul {
+ list-style: none;
+ padding: 0;
+}
+
+#nav li {
+ margin-bottom: 10px;
+}
+
+#nav a {
+ padding: 0.5em;
+ display: block;
+ text-decoration: none;
+ border: 1px solid #93A8DC;
+ background-color: #CFE2F3;
+ background-repeat: repeat-x;
+ background-image: url(/lab1/content/layout/images/nav-gradient.png);
+ background-position: top left;
+}
+#nav a:hover {
+ background-image: url(/lab1/content/layout/images/nav-gradient-rotated.png);
+ background-position: bottom left;
+}
+#nav a:active {
+ border-color: #CFE2F3;
+}
+
+#description {
+ margin-right: 260px;
+}
+
+
+#services {
+ margin: 50px 0px;
+ border-bottom: 1px solid #93A8DC;
+}
+
+#services h3 {
+ text-align: center;
+ border-top: 1px solid #93A8DC;
+ border-bottom: 1px solid #93A8DC;
+ padding: 5px 0px;
+}
+
+#services table td {
+ padding: 10px 0px;
+}
+
+#services table td.name {
+ font-weight: bold;
+ vertical-align: top;
+}
+
+
+#misc {
+ margin: 50px 0px;
+}
+
+#news {
+ float: left;
+ width: 48%;
+ border-bottom: 1px solid #93A8DC;
+}
+
+#news h3 {
+ text-align: center;
+ border-top: 1px solid #93A8DC;
+ border-bottom: 1px solid #93A8DC;
+ padding: 5px 0px;
+}
+
+#news ul {
+ list-style: none;
+ padding: 0em;
+}
+
+#news li {
+ padding: 0em;
+ margin: 10px;
+}
+
+#news .headline {
+ font-weight: bold;
+ margin-right: 10px;
+}
+
+#news .date {
+ font-size: 80%;
+}
+
+#news .details {
+ display: block;
+ margin: 5px;
+}
+
+#links {
+ float: right;
+ width: 48%;
+ border-bottom: 1px solid #93A8DC;
+}
+
+#links h3 {
+ text-align: center;
+ border-top: 1px solid #93A8DC;
+ border-bottom: 1px solid #93A8DC;
+ padding: 5px 0px;
+}
+
+#links ul {
+ list-style: none;
+ padding: 0em;
+}
+
+#links li {
+ padding: 0em;
+ margin: 10px;
+}
+
+
+
+#browse table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#browse tr {
+  background-color: #FCFCFC;
+}
+#browse td {
+  padding: 1px 5px;
+  border-color: #C3C3C3;
+  border-width: 1px;
+  border-style: solid;
+}
+#browse td.name {
+  font-weight: bold;
+}
+#browse table.subtable td {
+  border-width: 0px;
+  padding: 10px;
+  background-color: #ffffff;
+}

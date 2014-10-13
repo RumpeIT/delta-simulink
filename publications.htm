@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://myfaces.apache.org/tomahawk"><head>
+<title>Delta Simulink by Rumpe Information Technologies</title>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/guest.css">
+</head>
+
+
+<body>
+
+
+<table style="width:100%;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td style="overflow:hidden;">
+
+<div style=" height: 51px;">
+<span id="pname2">Delta-Simulink</span>
+</div>
+<img src="img/head_left.png" class="noimgborder" style="vertical-align: bottom;" height="20" width="320">
+</td>
+<td style="width:100%; height:100%;" width="100%">
+<img src="img/verlauf_rgb.png" style="vertical-align: bottom;" height="71x" width="100%">
+</td>
+</tr>
+</tbody></table>
+
+<table style="text-align:left; width:100%;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<colgroup>
+<col width="126">
+<col width="20">
+<col>
+</colgroup>
+
+
+<tbody><tr>
+	<td align="left" valign="top" width="126">
+		<div style="margin-left: 10px; width: 116px;">
+
+<br>
+<div id="project-name">
+Delta-Simulink
+</div>
+<br>
+
+<a class="nav" href="index.htm">Home</a><br><br>
+
+<a class="nav" href="https://github.com/RumpeIT/delta-simulink">Repository</a><br><br>
+
+<a class="nav" href="https://github.com/RumpeIT/delta-simulink/blob/master/Readme.md">Readme</a><br><br>
+
+<a class="nav" href="./publications.htm">Publications</a><br><br>
+
+<a class="nav" href="./contact.htm">Contact</a><br><br>
+
+<a class="nav" href="./impressum.htm">Impressum</a><br><br>
+
+
+<br>
+
+<a class="nav" style="font-size:12px" href="http://www.se.rwth-aachen.de/"><img alt="SE" src="img/logo_web_rgb.jpg" border="0" height="27" width="100"></a><br><br>
+<a class="nav" style="font-size:12px" href="http://www.rumpe.eu/"><img alt="SE" src="img/rit-logo_web_rgb.jpg" border="0" height="27" width="100"></a><br><br>
+
+</div>
+	</td>
+	<td style="background-image:url(./layout/vline.png);width:20px;" align="left" valign="top" width="20">
+		<img src="img/vline.png" class="noimgborder" width="20"> 
+	</td>
+	<td align="left" valign="top"><div style="margin-left:10px;">
+<br>
+<a style="float:left;" class="nav" href="."><< back to topics</a>
+<br><br><!-- CONTENT ---------------------------------------------->
+
+<h1>Variability & Software Product Lines (SPL)</h1>
+
+<h3>A selection of papers from Bernhard Rumpe and the Software Engineering Group</h3>
+
+Most products, like cars, printers, mobile phones, etc., exist in
+various variants. Software for product variants is quite
+similar, but typically differs in new or additional features that
+sometimes deeply affect the software's architecture. Software
+<b>variants</b> are managed as a <b>Software Product Line</b>
+(SPL) that captures the commonalities as well as the differences.
+Software Product Lines have many benefits, they:
+
+<ul>
+<li> decrease development time of new product variants,</li>
+<li> decrease time to market,</li>
+<li> lead to better software quality,</li>
+<li> improve reuse, and</li>
+<li> reduce bug fix bug time.</li>
+</ul>
+
+
+<h2>Feature diagrams and Views</h2>
+
+Feature diagrams describe variability in a top down fashion in the
+problem space. We studied the application of this top down approach
+e.g. in the automotive domain in <a
+href="~/rumpe/publications20042008/Modeling-Variants-of-Automotive-Systems-using-Views.pdf">[GKPR08]</a>.
+</p>
+
+Feature diagrams suffer from the need to first decompose the problem
+space and understand possible features in order to build the feature
+diagram before being able to apply it. In <a
+href="/~rumpe/publications20042008/Modelling-Automotive-Function-Nets-with-Views-for-Features-Variants-and-Modes.pdf">[GHK+08]</a>
+and <a
+href="~/rumpe/publications20042008/Modeling-Variants-of-Automotive-Systems-using-Views.pdf">[GKPR08]</a>
+we also speak of a 150% model. This normally enforces a product line
+definition phase in which the requirements and features need to be
+collected which creates additional costs. Among others we
+discuss decreasing these costs in <a
+href="../publications/High-Level-Requirements-Management-and-Complexity-Costs-in-Automotive-Development-Projects-A-Problem-Statement.pdf"
+target="_blank">[GRJA12]</a>.
+
+<h2>Delta Modeling</h2>
+
+As alternative we discuss <b>delta modeling</b> as a bottom up SPL
+modeling technique in <a
+href="../publications/Hierarchical-Variability-Modeling-for-Software-Architectures.pdf"
+target="_blank">[HRR+11]</a>. This allows building a product line
+incrementally starting with a base variant when the need for a new
+feature arises. Starting with a core version, each delta describes
+the changes necessary to derive a new variant. Deltas allow to add,
+replace, modify and delete components of a model resp. implementation
+and is thus rather general. </p>
+
+Each <b>set of valid deltas</b> configures a product variant. We have
+successfully applied delta modeling to the architectural analysis and
+design language (ADL) MontiArc by creating <b>Delta-MontiArc </b>(<a
+href="../publications/Hierarchical-Variability-Modeling-for-Software-Architectures.pdf"
+target="_blank">[HRR+11]</a> and <a
+href="../publications/Evolving-Delta-oriented-Software-Product-Line-Architectures.pdf"
+target="_blank">[HRRS12]</a>) as well as applied it to Simulink
+creating <b>Delta-Simulink </b><a href =
+"/publications/First-Class-Variability-Modeling-in-Matlab-Simulink.pdf"
+target="_blank">[HKM+13]</a>. Deltas can not only describe spacial
+variability but also temporal variability which allows using them
+for <b>software product line evolution</b> <a
+href="../publications/Evolving-Delta-oriented-Software-Product-Line-Architectures.pdf"
+target="_blank">[HRRS12]</a>.
+
+<h2>Variability within Modeling Language Definitions</h2>
+
+On a related line of research, we also have studied <b>variability of
+modeling languages</b>, which allows us to define and reason about
+syntactic and <b>semantic variation points</b>, which is e.g. in the
+UML a big topic as it seems the UML standard will otherwise not be
+able to accommodate all stakeholder requirements. </p>
+
+For this purpose we defined a systematic way to define variants of
+modeling languages  <a
+href="../publications/Variability-within-Modeling-Language-Definitions.pdf"
+target="_blank">[CGR09]</a>. We applied this research e.g. in the
+form of semantic language refinement on state charts in <a
+href="../publications/Modeling-Language-Variability.pdf"
+target="_blank">[GR11]</a>.
+
+In <a
+href="~rumpe/publications/Product-Line-Annotations-with-UML-F.pdf"
+target="_blank">[FPR02]</a> we discussed how to apply annotation to
+the UML to describe product variation points.
+
+
+<br>
+
+<br>
+<hr>
+
+<h2>Summary:</h2>
+<ol>
+<li>Products often exist in various variants.
+    Variants are managed in a Software Product Line (SPL)
+	that captures commonalities and differences.
+<li>Modeling variants explicitly is essential to tame complexity of
+    otherwise 150% models.
+<li><b>Delta modeling</b> is a bottom-up technique
+	starting with a running base variant and can more easily be
+    applied to derive and implement SPLs from existing products in
+    industrial size projects.
+<li>Delta-concepts are successfully applied to MontiArc and Simulink.
+<li>Variability applied to modelling languages allows to capture
+    semantic variation. This is essential to capture the semantics of the UML.
+</ol>
+
+<h2>Further Topics:</h2>
+<ul>
+  <li><a class="nav" href="Generative-SE.php">Generative Software Engineering</a></li>
+  <li><a class="nav" href="Domain-Specific-Languages.php">Domain Specific Languages (DSLs)</a></li>
+  <li><a class="nav" href="Semantics.php">Semantics of Modeling Languages</a></li>
+  <li><a class="nav" href="Evolution.php">Evolution & Transformation of Models</a></li>
+  <li><a class="nav" href="Software-Architecture.php" target="_blank">MontiArc - Architectural Modeling</a></li>
+  <li><a class="nav" href="MontiCore.php">MontiCore - Language Workbench</a></li>
+</ul>
+
+<hr>
+
+<h2>Selected(!) Publications:</h2>
+<ul>
+
+  <li><a href = "/publications/First-Class-Variability-Modeling-in-Matlab-Simulink.pdf" target="_blank">[HKM+13]</a>
+    <b>A. Haber, C. Kolassa</b>, P. Manhart, <b>P. Mir Seyed Nazari, B. Rumpe</b>, I. Schaefer<br />
+    <a href = "/publications/First-Class-Variability-Modeling-in-Matlab-Simulink.pdf" target="_blank">First-Class Variability Modeling in Matlab/Simulink</a><br/ >
+    In: Proceedings of the Seventh International Workshop on Variability Modelling of Software-intensive Systems, 23.-25.1.2013, pp. 11-18, ACM, New York, NY, USA. 2013
+    </li>
+    <br/>
+
+  <li><a href="../publications/Evolving-Delta-oriented-Software-Product-Line-Architectures.pdf" target="_blank">[HRRS12]</a>
+      <b>A. Haber, H. Rendel, B. Rumpe</b>, and I. Schaefer<br />
+	<a href="../publications/Evolving-Delta-oriented-Software-Product-Line-Architectures.pdf" target="_blank">Evolving Delta-oriented Software Product Line Architectures</a><br />
+	In: <a href="http://www.springer.com/computer/swe/book/978-3-642-34058-1" target="_blank">Large-Scale Complex IT Systems. Development, Operation and Management</a>, 17th Monterey Workshop 2012, Oxford, UK, March 19-21, 2012. LNCS Vol. 7539, pp. 183-208.
+	</li>
+	<br/>
+
+	<li><a href="../publications/High-Level-Requirements-Management-and-Complexity-Costs-in-Automotive-Development-Projects-A-Problem-Statement.pdf" target="_blank">[GRJA12]</a>
+       <b>T. G&uuml;lke, B. Rumpe</b>, M. Jansen, J. Axmann<br />
+       <a href="../publications/High-Level-Requirements-Management-and-Complexity-Costs-in-Automotive-Development-Projects-A-Problem-Statement.pdf" target="_blank">High-Level Requirements Management and Complexity Costs in Automotive Development Projects: A Problem Statement</a><br />
+        In: Requirements Engineering: Foundation for Software Quality 18th International Working Conference, Proceedings, REFSQ 2012, Essen, Germany, March 19-22, 2012.
+     </li>
+	<br />
+	
+     <li><a href="../publications/Modeling-Language-Variability.pdf" target="_blank">[GR11]</a>
+	  H.Grönninger and <b>B. Rumpe</b><br />
+       <a href="../publications/Modeling-Language-Variability.pdf" target="_blank">Modeling Language Variability</a><br />
+       In: Workshop on Modeling, Development and Verification of Adaptive Systems. 16th Monterey<br />
+	   Workshop, Redmond, Microsoft Research, March 31-April 2, 2010. LNCS vol. 6662,<br />
+	   pp. 17-32, Springer, 2011.
+    </li>
+    <br/>
+
+    <li><a href="../publications/Hierarchical-Variability-Modeling-for-Software-Architectures.pdf" target="_blank">[HRR+11]</a>
+       <b> A. Haber, H. Rendel, B. Rumpe</b>, I. Schaefer, F. van der Linden<br />
+       <a href="../publications/Hierarchical-Variability-Modeling-for-Software-Architectures.pdf" target="_blank">Hierarchical Variability Modeling for Software Architectures</a><br />
+        In: Proceedings of International Software Product Lines Conference (SPLC 2011), IEEE Computer Society, August 2011.<br />
+     </li>
+    <br/>
+
+     <li><a href="../publications/Delta-Modeling-for-Software-Architectures.pdf" target="_blank">[HRRS11]</a>
+      <b>A. Haber</b>, <b>H. Rendel</b>, <b>B. Rumpe</b> and I. Schäfer<br />
+      <a href="../publications/Delta-Modeling-for-Software-Architectures.pdf" target="_blank">Delta Modeling for Software Architectures.</a><br />
+       In: Tagungsband des Dagstuhl-Workshop MBEES: Modellbasierte Entwicklung eingebetteter Systeme VII, fortiss GmbH München, February 2011.<br />
+    </li>
+	<br/>
+
+
+	<li><a href="../publications/Variability-within-Modeling-Language-Definitions.pdf" target="_blank">[CGR09]</a>
+      M. V. Cengarle, <b>H. Gr&ouml;nniger, B. Rumpe</b><br />
+      <a href="../publications/Variability-within-Modeling-Language-Definitions.pdf" target="_blank">Variability within Modeling Language Definitions</a><br />
+       In: Model Driven Engineering Languages and Systems. Proceedings of MODELS 2009, LNCS 5795.<br />
+       Denver, Colorado, USA, October 2009<br />
+    </li>
+    <br />
+
+	
+<li><a href="~/rumpe/publications20042008/Modeling-Variants-of-Automotive-Systems-using-Views.pdf">[GKPR08]</a>
+  <b>H. Gr&ouml;nniger, H. Krahn, C. Pinkernell, B. Rumpe</b><br>
+
+    <a href="~/rumpe/publications20042008/Modeling-Variants-of-Automotive-Systems-using-Views.pdf">Modeling Variants of Automotive Systems using Views.</a><br>
+
+    In:  Tagungsband Modellierungs-Workshop MBEFF: Modellbasierte Entwicklung von eingebetteten Fahrzeugfunktionen. Berlin, M&auml;rz 2008,<br>
+
+    Informatik-Bericht 2008-01, CFG-Fakultät, TU Braunschweig, 2008.
+</li><br>
+
+
+<li><a href="/~rumpe/publications20042008/Modelling-Automotive-Function-Nets-with-Views-for-Features-Variants-and-Modes.pdf">[GHK+08]</a>
+  <b>H. Gr&ouml;nniger</b>, J. Hartmann, <b>H. Krahn</b>, S. Kriebel, L. Rothhardt, <b>B. Rumpe</b><br>
+
+       <a href="/~rumpe/publications20042008/Modelling-Automotive-Function-Nets-with-Views-for-Features-Variants-and-Modes.pdf">Modelling Automotive Function Nets with Views for Features,
+Variants, and Modes.</a><br>
+
+       4th European Congress ERTS - Embedded Real Time Software, Toulouse 2008.
+
+      </li>
+
+	<br>
+
+
+
+<li><a href="~rumpe/publications/Product-Line-Annotations-with-UML-F.pdf" target="_blank">[FPR02]</a>
+  <b>Wolfgang Pree, Marcus Fontoura, Bernhard Rumpe</b>.<br>
+<a href="~rumpe/publications/Product-Line-Annotations-with-UML-F.pdf" target="_blank">Product Line Annotations with UML-F</a><br>
+In: Software Product Lines - Second International Conference, SPLC 2, San Diego.<br>
+G.J. Chastek (ed.), LNCS 2379, Springer Verlag. 2002.<br>
+</li>
+<br>
+
+</ul>
+
+
+<br>
+
+
+
+<!-- CONTENT END ------------------------------------------>
+<br>
+
+</tbody></table>
+
+<div style="text-align: justify;">
+
+<br>
+</div>
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="text-align:left; vertical-align:top; background-image:url(./layout/vline_end.png)">
+		&nbsp;
+		</td>
+		<td></td>
+	</tr>
+	</tbody></table>
+
+
+</body></html>

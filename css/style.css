@@ -1,0 +1,163 @@
+* {
+	font-size: 14px;
+}
+body {
+	font-family: Verdena,Arial,sans-serif;
+	color: #000000;
+	background-color: #FFFFFF;
+	max-width: 800px;
+	margin: 20px auto;
+	
+}	
+
+h1 {
+  font-family: Trebuchet MS,Arial,sans-serif;
+	font-size: 22px;
+  font-style: normal;
+	font-weight: bold;
+}
+h2 {
+  font-family: Trebuchet MS,Arial,sans-serif;
+	font-size: 18px;
+  font-style: normal;
+	font-weight: bold;
+}
+h3 {
+  font-family: Trebuchet MS,Arial,sans-serif;
+	font-size: 16px;
+  font-style: normal;
+	font-weight: bold;
+}
+h4 {
+  font-family: Trebuchet MS,Arial,sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+}
+dt {
+	font-weight: bold;
+}
+hr {
+	height: 6px;
+	border-left: none;
+	border-right: none;
+	border-top: 1px solid;
+	border-top-color: #0060B3;
+	border-bottom: 1px solid;
+	border-bottom-color: #93A8DC;
+}
+
+/* tables with border = "1" */
+table[border="1"] {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    border-width: 1px;
+    border-style: solid;
+    empty-cells: show;
+    padding: 4px;
+}
+table[border="1"] * td {
+    padding: 4px;
+}
+table[border="1"] * th {
+    padding: 4px;
+}
+
+a {
+	color: #000000;
+}
+a:link {
+	color: #000000;
+}
+a:visited {
+	color: #000000;
+}
+a:hover {
+	color: #000000;
+	background-color: #CFE2F3;
+}
+a:active {
+	color: #000000;
+	background-color: #CFE2F3;
+}
+a:focus {
+	color: #000000;
+	background-color: #CFE2F3;
+}
+.nav {
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+}
+#project-name {
+	font-family: Arial,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+#pname2{
+	font-family: Arial,sans-serif;
+	font-size: 30px;
+	font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+.pname-rear{
+	color: #779EC9;
+}
+.pname-front{
+	color: #0067A6;
+}
+.nav:link {
+	color: #0060B3;
+	text-decoration: none;
+}
+.nav:visited {
+	color: #0060B3;
+	text-decoration: none;
+}
+.nav:hover {
+	color: #0060B3;
+	background-color: #CFE2F3;
+}
+.nav:active {
+	color: #0060B3;
+	background-color: #CFE2F3;
+}
+.nav:focus {
+	color: #0060B3;
+	background-color: #CFE2F3;
+}
+.imgborder {
+	border: 1px solid black;
+}
+.noimgborder {
+	border-style:none;
+}
+/* style for a border around a div-tag (for boxes): */
+.box {
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    border-color: #0000CC;
+}
+.red {
+	color: #FF0000;
+}
+.green {
+	color: #00A000;
+}
+.login_input {
+	width: 250px;
+}
+.login_problem {
+	width: 400px;
+}
+.note {
+	background-color: #779EC9;
+	text-align: justify;
+}
+#bottom_menu > a {
+	font-family: Trebuchet MS,Arial,sans-serif; 
+	font-size: 16px; 
+	font-weight: bold;
+}
