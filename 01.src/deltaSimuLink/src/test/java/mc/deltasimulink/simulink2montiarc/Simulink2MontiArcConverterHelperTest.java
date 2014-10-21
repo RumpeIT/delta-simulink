@@ -23,7 +23,8 @@ import org.junit.Test;
 
 public class Simulink2MontiArcConverterHelperTest {
 
-	@Ignore("Just for CKs own testing") @Test
+//	@Ignore("Just for CKs own testing") 
+	@Test
 	public void test() {
 		Simulink2MontiArcConverterHelper s2ma=new Simulink2MontiArcConverterHelper();
 		s2ma.convert("C:\\MATLAB\\Delta", "DAntiLockBrakingSystem", "out.txt");

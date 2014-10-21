@@ -31,7 +31,8 @@ import org.junit.Test;
 public class Simulink2MontiArcConverterTest extends TestHelper {
 	
 	private static final String SEP = File.separator;
-	private static final String PATH_TO_MODELS = ".." + SEP + "02.simulink" + SEP + "abstract";
+	//private static final String PATH_TO_MODELS = ".." + SEP + "02.simulink" + SEP + "abstract";
+	private static final String PATH_TO_MODELS = "src" + SEP + "test" + SEP + "resources" + SEP + "simulink" + SEP + "abstract" + SEP;
     private static final String INPUT_FOLDER = "src/test/resources";
 	
 	
@@ -41,7 +42,7 @@ public class Simulink2MontiArcConverterTest extends TestHelper {
 	    matlab.connect();
         assertTrue(matlab.isConnected());	
     }
-	
+/*	
 //	@Test
 //	@Ignore
 //	public void testConvertModel() {
@@ -161,8 +162,8 @@ public class Simulink2MontiArcConverterTest extends TestHelper {
 //		
 //		compareMontiArcModelStrings(expected, montiArcModel);
 //	}
-	
-	@Ignore
+*/	
+	@Ignore @Test
 	public void testConvertDeltaModels() {
 	    String modelName = "SupportedDeltaModelElements";
         

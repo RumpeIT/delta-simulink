@@ -83,7 +83,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/01.ABS/ABS.delta", 
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta", 
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -95,7 +95,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/02.ABS_TC/ABS_TC.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/02.ABS_TC/ABS_TC.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -107,7 +107,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_ESC() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/03.ABS_TC_ESC/ABS_TC_ESC.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/03.ABS_TC_ESC/ABS_TC_ESC.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -119,7 +119,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_ESC_ACC() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/04.ABS_TC_ESC_ACC/ABS_TC_ESC_ACC.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/04.ABS_TC_ESC_ACC/ABS_TC_ESC_ACC.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -131,7 +131,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_FWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/05.ABS_TC_FWD/ABS_TC_FWD.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/05.ABS_TC_FWD/ABS_TC_FWD.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -143,7 +143,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_ESC_ACC_FWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/06.ABS_TC_ESC_ACC_FWD/ABS_TC_ESC_ACC_FWD.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/06.ABS_TC_ESC_ACC_FWD/ABS_TC_ESC_ACC_FWD.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -155,7 +155,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_ESC_RG() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/07.ABS_TC_ESC_RG/ABS_TC_ESC_RG.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/07.ABS_TC_ESC_RG/ABS_TC_ESC_RG.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -168,7 +168,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/08.ABS_TWD/ABS_TWD.delta",  
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/08.ABS_TWD/ABS_TWD.delta",  
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -177,10 +177,10 @@ public class DeltaSimulinkToolTest extends TestHelper {
         assertFalse(tool.slHandler.hasWarning());
     }
     
-    @Ignore
+    @Test
     public void testRoundtripTWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("./src/test/resources/products/09.TWD/TWD.delta",   
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/09.TWD/TWD.delta",   
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -194,7 +194,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
     @Test
     public void testRoundtripABS_TC_ESC_FWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
-        tool.runDeltaMontiArc("../02.simulink/BrakingSystem/products/10.ABS_TC_ESC_FWD/ABS_TC_ESC_FWD.delta",   
+        tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/10.ABS_TC_ESC_FWD/ABS_TC_ESC_FWD.delta",   
                 DeltaSimulinkTool.TMP_CORE_FOLDER, 
                 DeltaSimulinkTool.TMP_DELTA_FOLDER, 
                 DeltaSimulinkTool.TMP_GEN_FOLDER);
@@ -203,13 +203,13 @@ public class DeltaSimulinkToolTest extends TestHelper {
         assertFalse(tool.slHandler.hasWarning());
     }
     
-    @Ignore
+    @Test
     public void testInvalidCoreFolder() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "../bla bla bla", 
-                    "../02.simulink/BrakingSystem/deltas", 
-                    "../02.simulink/BrakingSystem/products/01.ABS/ABS.delta", 
+            		"../bla bla bla", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas", 
+                    "./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta", 
             OUTPUT});
             fail("Expected exception");
         }
@@ -218,13 +218,13 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore
+    @Test
     public void testFileCoreFolder() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "../02.simulink/BrakingSystem/core/ABS.mdl", 
-                    "../02.simulink/BrakingSystem/deltas", 
-                    "../02.simulink/BrakingSystem/products/01.ABS/ABS.delta", 
+                    "./src/test/resources/simulink/BrakingSystem/core/ABS.mdl", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas", 
+                    "./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta", 
             OUTPUT});
             fail("Expected exception");
         }
@@ -233,13 +233,13 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore
+    @Test
     public void testInvalidDeltaFolder() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "../02.simulink/BrakingSystem/core", 
+                    "./src/test/resources/simulink/BrakingSystem/core", 
                     "../foo/bar", 
-                    "../02.simulink/BrakingSystem/products/01.ABS/ABS.delta", 
+                    "./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta", 
             OUTPUT});
             fail("Expected exception");
         }
@@ -248,13 +248,13 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore
+    @Test
     public void testFileDeltaFolder() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "../02.simulink/BrakingSystem/core", 
-                    "../02.simulink/BrakingSystem/deltas/DElectronicStabilityControl.mdl",
-                    "../02.simulink/BrakingSystem/products/01.ABS/ABS.delta", 
+                    "./src/test/resources/simulink/BrakingSystem/core", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas/DElectronicStabilityControl.mdl",
+                    "./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta", 
             OUTPUT});
             fail("Expected exception");
         }
@@ -263,13 +263,13 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore @Test
+    @Test
     public void testInvalidCfgFile() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "./src/test/resources/core", 
-                    "./src/test/resources/deltas", 
-                    "./src/test/resources/Foo.delta", 
+                    "./src/test/resources/simulink/BrakingSystem/core", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas", 
+                    "./src/test/resources/simulink/BrakingSystem/products/Foo.delta", 
             OUTPUT});
             fail("Expected exception");
         }
@@ -278,12 +278,12 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore @Test
+    @Test
     public void testFolderCfgFile() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "./src/test/resources/core", 
-                    "./src/test/resources/deltas", 
+                    "./src/test/resources/simulink/BrakingSystem/core", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas", 
                     "./src/test/resources/products", 
             OUTPUT});
             fail("Expected exception");
@@ -293,14 +293,15 @@ public class DeltaSimulinkToolTest extends TestHelper {
         }
     }
     
-    @Ignore @Test
+    @Test
     public void testFileOutputFile() {
         try {
             new DeltaSimulinkTool(new String[]{
-                    "./src/test/resources/core", 
-                    "./src/test/resources/deltas", 
-                    "./src/test/resources/products/01.ABS/ABS.delta", 
-                    "./src/test/resources/bla.cfg"});
+                    "./src/test/resources/simulink/BrakingSystem/core", 
+                    "./src/test/resources/simulink/BrakingSystem/deltas",
+                    "./src/test/resources/bla.cfg",
+                    "./src/test/resources/simulink/BrakingSystem/products/01.ABS/ABS.delta"} 
+                    );
             fail("Expected exception");
         }
         catch (RuntimeException e) {

@@ -36,7 +36,7 @@ public class SimulinkBuilderTest extends TestHelper {
 	private static final String ROOT_PATH = ".." + SEP + "02.simulink" + SEP;
 	
 	
-	@Ignore @Test
+	@Test
 	public void testBuild() {
 		
 		connect();

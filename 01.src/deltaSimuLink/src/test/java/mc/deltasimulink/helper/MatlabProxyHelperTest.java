@@ -33,7 +33,8 @@ import org.junit.Test;
 public class MatlabProxyHelperTest {
 
 	private static final String SEP = File.separator;
-	private static final String PATH_TO_MODELS = "src" + SEP + "test" + SEP + "resources" + SEP + "02.simulink" + SEP;
+	//private static final String PATH_TO_MODELS = "src" + SEP + "test" + SEP + "resources" + SEP + "02.simulink" + SEP;
+	private static final String PATH_TO_MODELS = "src" + SEP + "test" + SEP + "resources" + SEP + "Simulink" + SEP;
 	private MatlabProxyHelper matlab;
 	
 	@Before
@@ -46,7 +47,7 @@ public class MatlabProxyHelperTest {
 		disconnect();
 	}
 
-	@Ignore @Test
+	@Test
 	public void testConnectAndDisconnect() {
 		assertTrue(matlab.connect());
 		assertTrue(matlab.isConnected());
@@ -57,7 +58,7 @@ public class MatlabProxyHelperTest {
 		assertFalse(matlab.isConnected());
 	}
 	
-	@Ignore
+	@Test
 	public void testLoadModelInfos() {
 		
 		connect();
@@ -117,7 +118,7 @@ public class MatlabProxyHelperTest {
 		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testHandles() {
 		connect();
 		
@@ -130,7 +131,7 @@ public class MatlabProxyHelperTest {
 		assertEquals("In1", matlab.returningFeval("get_param", handle, "Name"));
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testConnectors() {
 		connect();
 		
@@ -148,7 +149,7 @@ public class MatlabProxyHelperTest {
 		
 	}
 	
-	@Ignore @Test
+	@Test
 	public void testClearPath() {
 	    matlab.connect();
 	    matlab.addFolderAndSubsToPath(new File("inputForTests/simulink"));
