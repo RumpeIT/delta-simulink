@@ -1,0 +1,5 @@
+deltaconfig ABS_TC {
+    DAntiLockBrakingSystem,
+    DPreTractionControl,
+    DTractionControl
+}

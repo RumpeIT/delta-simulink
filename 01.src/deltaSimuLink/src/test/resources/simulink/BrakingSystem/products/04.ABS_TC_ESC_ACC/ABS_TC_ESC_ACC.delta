@@ -1,0 +1,8 @@
+deltaconfig ABS_TC_ESC_ACC {
+    DAntiLockBrakingSystem,
+    DPreTractionControl,
+    DTractionControl,
+    DElectronicStabilityControl,
+    DPreAdaptiveCruiseControl,
+    DAdaptiveCruiseControl
+}

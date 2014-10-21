@@ -1,0 +1,8 @@
+deltaconfig ABS_TC_ESC_FWD {
+    DAntiLockBrakingSystem,
+    DPreTractionControl,
+    DTractionControl,
+    DElectronicStabilityControl,
+    DPreFourWheelDrive,
+    DFourWheelDrive
+}
