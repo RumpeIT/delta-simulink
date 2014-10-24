@@ -11,11 +11,12 @@
 % Lesser General Public License for more details.
 % 
 % You should have received a copy of the GNU Lesser General Public
-% License along with this project.function deltafyModel(blocks,lines)
+% License along with this project.
+function deltafyModel(blocks,lines)
 mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','red','blue','orangeWhite','black'});
     for block=1:length(blocks),
     %uDat=get_param(blocks(block), 'UserData');
-    set_param(blocks(block), 'LinkStatus', 'none')
+    set_param(blocks(block), 'LinkStatus', 'inactive')
     if(isempty(get_param(blocks(block),'UserData')))
     uDat=BlockDat(get_param(blocks(block),'ForegroundColor'),'reset');
     set_param(blocks(block), 'UserData',uDat);

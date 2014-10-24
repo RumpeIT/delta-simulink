@@ -12,6 +12,7 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
+
 function normalizeModel(blocks,lines)   
     for block=1:length(blocks),
     set_param(blocks(block), 'LinkStatus', 'none')

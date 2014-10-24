@@ -12,6 +12,7 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
+
 function fileList = getAllFiles(dirName)
 
   dirData = dir(dirName);      %# Get the data for the current directory

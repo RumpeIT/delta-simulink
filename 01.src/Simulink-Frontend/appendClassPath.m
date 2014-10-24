@@ -27,3 +27,19 @@ function appendClassPath( newEntries )
   jloader.setClassPath(newPath);
   jloader.load();
 end
+
+
+function result = toStringArray(javaArray)
+%toStringArray convert an java.lang.String[] array to a cell array containing matlab strings.
+%
+  
+  if isempty(javaArray)
+    result = {};
+    return;
+  end
+  result = cell(1, javaArray.length);
+  for i=1:javaArray.length
+    result{i} = char(javaArray(i));
+  end
+  
+end

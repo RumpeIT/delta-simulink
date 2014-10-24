@@ -12,6 +12,7 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
+
 function highlight_block(block_id)
 mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','red','blue','orangeWhite','black'});
  uDat=get_param(block_id,'UserData');

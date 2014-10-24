@@ -12,6 +12,7 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
+
 function sl_customization(cm)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %TODO Add RWTH custom header
@@ -72,7 +73,7 @@ function schema = applyDelta(callbackInfo)
    schema.callback = @applyDeltaCallBack;
 end
 function applyDeltaCallBack(inArgs)
-
+DeltaGUI;
 
 end
 function schema = showDelta(callbackInfo)
@@ -113,8 +114,9 @@ function slDeltaMode(inArgs)
    ckMode=mymodus;
    %TODO Define light Blue see: for tutorial
    mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','red','blue','orangeWhite','black'});
-   blocks=find_system( 'FindAll','on', 'Type', 'Block');
-   lines=find_system( 'FindAll','on', 'Type', 'Line');
+   parent_model=getParentModel(gcs);
+   blocks=find_system(parent_model,'FindAll','on', 'Type', 'Block');
+   lines=find_system(parent_model,'FindAll','on', 'Type', 'Line');
    if(strcmp(mymodus,'delta')==1)
     deltafyModel(blocks,lines);
    elseif (strcmp(mymodus,'normal')==1)
@@ -164,8 +166,10 @@ mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','r
  selectedBlocks     = inArgs.Userdata{2};
  selectedLines     = inArgs.Userdata{3};
  mousePosition = inArgs.Userdata{4};
- blocks=find_system( 'FindAll','on',  'Selected', 'on', 'Type', 'Block');
+ blocks=find_system(gcs, 'FindAll','on',  'Selected', 'on', 'Type', 'Block');
  lines=find_system( 'FindAll','on',  'Selected', 'on', 'Type', 'Line');
+ sys_handle=get_param(gcs,'handle');
+ blocks= blocks(find(blocks~=sys_handle));
 %% Change Color
 for block=1:length(blocks),
     
@@ -212,4 +216,3 @@ for line=1:length(lines),
 end
       
 end
-

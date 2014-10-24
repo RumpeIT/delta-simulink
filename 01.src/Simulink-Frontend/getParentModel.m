@@ -13,10 +13,17 @@
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
 
-function [ output_args ] = get_deltawd(  )
-%GET_DELTWD Summary of this function goes here
-%   Detailed explanation goes here
-output_args='D:\WD';
+function [ system_walk_pointer ] = getParentModel( current_system )
+system_walk_pointer=current_system;
+parent=get_param(system_walk_pointer,'parent');
+while(~isempty(parent))
+parent=get_param(system_walk_pointer,'parent');
+if isempty(parent);
+    return;
+else
+    system_walk_pointer=parent;
+end
+end
 
 end
 
