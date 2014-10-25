@@ -119,6 +119,7 @@ Table to add your Name and ID to:
 |First Name                  |Last Name                    |E-Mail                       |GitHub ID                    |
 |----------------------------|-----------------------------|-----------------------------|-----------------------------|
 |Carsten                     |Kolassa                      |kolassa@se-rwth.de           |kolassa                      |
+|Arne                        |Haber                        |haber at se-rwth.de          |arnehaber                    |
 
 
 
