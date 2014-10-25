@@ -18,7 +18,6 @@ package mc.deltasimulink.montiarc2simulink;
 
 import java.io.File;
 
-import matlabcontrol.extensions.MatlabNumericArray;
 import mc.deltasimulink.SimulinkBlockType;
 import mc.deltasimulink.helper.MatlabProxyHelper;
 

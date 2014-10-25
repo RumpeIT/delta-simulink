@@ -11,7 +11,6 @@ import static org.junit.Assert.fail;
 import java.io.File;
 
 import mc.ProblemReport.Type;
-import mc.deltasimulink.helper.MatlabProxyHelper;
 import mc.deltasimulink.helper.TestHelper;
 
 import org.junit.Before;

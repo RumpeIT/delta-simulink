@@ -28,7 +28,7 @@ global m;
 %m=mc.deltasimulink.simulink2montiarc.Simulink2MontiArcConverterHelper();
 %m=javaObjectEDT('mc.deltasimulink.simulink2montiarc.Simulink2MontiArcConverterHelper');
 % deltaTool=mc.deltasimulink.simulink2montiarc.DeltaSimulinkTool();
-appendClassPath('C:\MATLAB_DL\lib\de.deltasimulink-0.2.1-SNAPSHOT.jar');
+appendClassPath('C:\MATLAB_DL\lib\delta-simulink-be-1.3.0-SNAPSHOT.jar');
 %% Register custom menu function.
 cm.addCustomMenuFcn('Simulink:PreContextMenu', @getMyMenuItems);
 cm.addCustomMenuFcn('Simulink:ToolsMenu', @getDeltaSimMenue);
