@@ -19,10 +19,8 @@ package mc.deltasimulink.simulink2montiarc;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.junit.Before;
 
 import mc.ConsoleErrorHandler;
 import mc.IErrorDelegator;

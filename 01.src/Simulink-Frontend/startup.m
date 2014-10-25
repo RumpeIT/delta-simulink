@@ -13,7 +13,8 @@
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
 
-DeltaSimulinkJARPath='C:\MATLAB_DL\lib\de.deltasimulink-0.2.1-SNAPSHOT.jar';
+DeltaSimulinkJARPath='C:\MATLAB_DL\lib\delta-simulink-be-1.3.0-SNAPSHOT.jar';
+
 DeltaSimulinkClasspath='C:\MATLAB_DL\lib\';
 model_dir='C:\MATLAB\Model';
 delta_dir='C:\MATLAB\Delta';
