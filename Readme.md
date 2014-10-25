@@ -12,6 +12,7 @@ can find an overview of our scientific work on that topic at [[2]].
 * Initial Delta-Simulink back-end (internal release)
     * [Arne Haber](http://www.se-rwth.de/~haber/)
     * [Pedram Nazari](http://www.se-rwth.de/~nazari/)
+    * [Ina Schaefer](https://www.tu-braunschweig.de/isf/team/schaefer)
 
 
 ## Contribute to the Project
