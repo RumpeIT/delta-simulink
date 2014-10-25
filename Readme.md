@@ -5,6 +5,15 @@ A description of Delta-Simulink as well as an overview of its architecture can
 be found at [[1]]. If you are interested in the topic of software varibility you
 can find an overview of our scientific work on that topic at [[2]].
 
+
+## Project Members
+* Current development and Simulink integration
+    * [Carsten Kolassa](http://www.se-rwth.de/~kolassa/)
+* Initial Delta-Simulink back-end (internal release)
+    * [Arne Haber](http://www.se-rwth.de/~haber/)
+    * [Pedram Nazari](http://www.se-rwth.de/~nazari/)
+
+
 ## Contribute to the Project
 The `master` branch is the latest (stable) release. The `development` branch is 
 where the development takes place.<br/>
