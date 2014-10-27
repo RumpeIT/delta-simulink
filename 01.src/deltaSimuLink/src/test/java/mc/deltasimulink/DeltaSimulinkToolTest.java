@@ -177,7 +177,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
         assertFalse(tool.slHandler.hasWarning());
     }
     
-    @Test
+    @Ignore @Test
     public void testRoundtripTWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
         tool.runDeltaMontiArc("./src/test/resources/simulink/BrakingSystem/products/09.TWD/TWD.delta",   
