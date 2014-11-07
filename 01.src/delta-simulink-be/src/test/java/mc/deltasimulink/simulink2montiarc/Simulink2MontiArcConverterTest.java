@@ -163,7 +163,7 @@ public class Simulink2MontiArcConverterTest extends TestHelper {
 //		compareMontiArcModelStrings(expected, montiArcModel);
 //	}
 */	
-	@Ignore @Test
+	@Test
 	public void testConvertDeltaModels() {
 	    String modelName = "SupportedDeltaModelElements";
         
@@ -219,10 +219,10 @@ public class Simulink2MontiArcConverterTest extends TestHelper {
                 "       add component ToReplace newModel;\n" + 
                 "       replace component Model with component ToReplace newModel;\n" + 
                 "       connect newModel.brakePressure1 -> Out3;\n" +
-                "connect newModel.brakePressureOut1 -> Out2;\n" +
+                "       connect newModel.brakePressureOut1 -> Out2;\n" +
                 "       connect Subsystem1.Out1 -> Out4;\n" + 
+                "       disconnect Subsystem.Out1 -> Out1;\n" +
                 "       connect In2 -> Subsystem1.In1;\n" + 
-                "       disconnect Subsystem.Out1 -> Out1;\n" + 
                 "       disconnect In1 -> Subsystem.In1;\n" + 
 
                 "       remove port In1;\n" +
