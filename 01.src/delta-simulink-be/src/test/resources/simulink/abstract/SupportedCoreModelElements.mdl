@@ -25,7 +25,7 @@ Model {
       Name		      "Out3"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "1.9"
     NumModelReferences	    2
     ModelReference {
       ModelRefBlockPath	      "SupportedCoreModelElements/Model|DAbstractOperations"
@@ -50,11 +50,11 @@ Model {
   Creator		  "Arne Haber"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Arne Haber"
+  LastModifiedBy	  "Deng"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 26 15:25:57 2011"
-  RTWModifiedTimeStamp	  244221947
-  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  LastModifiedDate	  "Sun Nov 16 01:30:40 2014"
+  RTWModifiedTimeStamp	  338002122
+  ModelVersionFormat	  "1.%<AutoIncrement:9>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -774,7 +774,7 @@ Model {
   }
   System {
     Name		    "SupportedCoreModelElements"
-    Location		    [1028, 308, 1564, 597]
+    Location		    [792, 232, 1328, 521]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -810,7 +810,7 @@ Model {
     }
     Block {
       BlockType		      Math
-      Name		      "Math\nFunction"
+      Name		      "MathFunction"
       SID		      "10"
       Ports		      [1, 1]
       Position		      [385, 210, 415, 240]
@@ -826,7 +826,7 @@ Model {
       ZOrder		      -17
       ModelNameDialog	      "DAbstractOperations"
       SimulationMode	      "Normal"
-      ModelReferenceVersion   "1.8"
+      ModelReferenceVersion   "1.10"
       List {
 	ListType		InputPortNames
 	port0			"In1"
@@ -868,8 +868,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Subsystem"
-	Location		[784, 390, 1512, 690]
-	Open			on
+	Location		[605, 333, 1333, 633]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1088,11 +1088,11 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      DstBlock		      "Math\nFunction"
+      DstBlock		      "MathFunction"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Math\nFunction"
+      SrcBlock		      "MathFunction"
       SrcPort		      1
       DstBlock		      "Out3"
       DstPort		      1
