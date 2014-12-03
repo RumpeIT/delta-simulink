@@ -12,6 +12,9 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
+
+% addpath('C:\MATLAB_DL\Simulink-Frontend');
+addpath('D:\WORKSPACE\OpenDeltaSimulin\01.src\Simulink-Frontend');
 DeltaSimulinkJARPath='C:\MATLAB_DL\lib\delta-simulink-be-1.3.0-SNAPSHOT.jar';
 DeltaSimulinkClasspath='C:\MATLAB_DL\lib\';
 model_dir='C:\MATLAB\Model';
