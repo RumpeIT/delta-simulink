@@ -9,6 +9,9 @@ import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import javax.swing.JOptionPane;
 
@@ -29,16 +32,11 @@ public class ExtractAndStart
         		//grep for version string
         		//Create Folders Check if they exist in case they exist empty them
         		//Ask the user before you do that
-        		//TODO: copy frontend files
+        		// copy frontend files
         	
-        		// TODO:Put link to startup.m on desktop
-        		// TODO:add folders to start menu
+        		//TODO:Put link to startup.m on desktop
+        		//TODO:add folders to start menu
         	     	
-				extractFile("Lenna.png","C:\\test\\Lenna.png");
-				extractFile("test.m","C:\\test\\test.m");
-				//extractFile("Simulnk-Frontend/startup.m", targetPath1+subPath1[1]+"startup.m");
-			
-        		//Process process = new ProcessBuilder("maltab","-h").start();
         	
         		Process process = Runtime.getRuntime().exec("matlab -h");
         		InputStream is = process.getInputStream();
@@ -102,48 +100,8 @@ public class ExtractAndStart
 			extractFile("delta-simulink-be-1.3.0-SNAPSHOT.jar", targetPath1 + subPath1[0]+ "delta-simulink-be-1.3.0-SNAPSHOT.jar");
 			
 			// extracting files in Simulink-Frontend 
-			System.out.printf("adfdaf");
-			extractAllFile() ;	
-			//URL url = getClass().getResource("resources/");
-			//URL url = ExtractAndStart.class.getResource("resources/Simulink-Frontend");
-			//System.out.printf(url.toString());
-			//File dir = new File(url.toURI());
+			extractFromFolder() ;	
 			
-			//String resPath = "/src/main/resources/Simulink-Frondend";
-			
-			//String resPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-			//System.out.printf(resPath);
-			//File dir = new File(resPath);
-			//final String path = "resources/Simulink-Frontend";
-			//final URL url = installer.ExtractAndStart.class.getResource("/" + path);
-//			String filepath = this.getClass().getClassLoader().getResource("/").getPath();//+"/installer" ;   
-//			System.out.printf(filepath);
-//			
-//		    if (filepath != null) {
-//		        //final File apps = new File(url.toURI());
-//				//for (File app : apps.listFiles()) {
-//				  //  System.out.println(app);
-//				//}
-//				//File dir = new File(url.toURI());
-//				File dir = new File(filepath);
-//				String[] files = dir.list();
-//				System.out.printf(files[0]);
-//				System.out.printf("files[0]");
-//				for (int i = 0; i < files.length; i++) 
-//				{
-//					extractFile(files[i], targetPath1 + subPath1[1]);
-//				}
-//		    }
-//			
-			System.out.printf("adfdaf");
-			
-//			String[] files = dir.list();
-//			System.out.printf(files[0]);
-//			System.out.printf("files[0]");
-//			for (int i = 0; i < files.length; i++) 
-//			{
-//				extractFile(files[i], targetPath1 + subPath1[1]);
-//			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -185,42 +143,45 @@ public class ExtractAndStart
     		return false;
     }
     
-    private static void extractAllFile() throws IOException, URISyntaxException
+    // Extract files from folder in resources
+    // handling separately the situation 
+    // between running in jar file and in IDE
+    private static void extractFromFolder() throws IOException, URISyntaxException
     {
-    	//String filepath = Class.class.getClass().getResource("/").getPath();//+"/installer" ;   
-		//System.out.printf(filepath);
+    	String filePath = "Simulink-Frontend/";
     	
-    	//URL url = Class.class.getClass().getResource("Simulink-Frondend/");
-    	//System.out.printf(url.toString());
-    	//InputStream is = 
-    	//		ExtractAndStart.class.getClassLoader().getResourceAsStream("Simulink-Frontend/");
-    	
-    	//System.out.println(is.toString());
-    	String filepath = "Simulink-Frontend/";
-    	
-    	URL url = ExtractAndStart.class.getClassLoader().getResource(filepath);
-    	//String path = ExtractAndStart.class.getClassLoader().getResource(filepath).getPath();
-    	//System.out.printf(url.toString());
-    	///System.out.println();
-    	//System.out.printf(path);
-	    if (url != null) {
-//	        //final File apps = new File(url.toURI());
-//			//for (File app : apps.listFiles()) {
-//			  //  System.out.println(app);
-//			//}
-			File dir = new File(url.toURI());
-			//File dir = new File(path);
-			String[] files = dir.list();
-			//File[] files = dir.listFiles();
-			//System.out.printf(files[0]);
-			//System.out.printf("files[0]");
-			for (int i = 0; i < files.length; i++) 
-			{
-				extractFile(filepath+files[i], targetPath1 + subPath1[1] + files[i]);
-			}
+    	final File jarFile = new File(ExtractAndStart.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+
+    	if(jarFile.isFile()) 
+    	{  // Run with JAR file
+    	    final JarFile jar = new JarFile(jarFile);
+    	    final Enumeration<JarEntry> entries = jar.entries(); //gives ALL entries in jar
+    	    while(entries.hasMoreElements()) 
+    	    {
+    	        final String name = entries.nextElement().getName();
+    	        if (name.startsWith(filePath) && !name.equals(filePath)) 
+    	        { //filter according to the path
+    	        	extractFile(name, targetPath1 + name);
+    	        }
+    	    }
+    	jar.close();
+    	}else
+    	{ // Run within IDE
+    		URL url = ExtractAndStart.class.getClassLoader().getResource(filePath);
+    		if (url != null) 
+    		{
+    			File dir = new File(url.toURI());
+    			String[] files = dir.list();
+    			System.out.printf("files[0]");
+    			for (int i = 0; i < files.length; i++) 
+    			{
+    				extractFile(filePath+files[i], targetPath1 + subPath1[1] + files[i]);
+    			}
+    		}
 	    }
     }
     
+    // Extract single file form resources
     private static void extractFile(String name,String targetPath) throws IOException
     {
         ClassLoader cl = ExtractAndStart.class.getClassLoader();
@@ -241,4 +202,3 @@ public class ExtractAndStart
         in.close();
     }
 }
-
