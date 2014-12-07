@@ -1,11 +1,15 @@
 package installer;
 
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Enumeration;
@@ -16,18 +20,23 @@ import javax.swing.JOptionPane;
 
 public class ExtractAndStart
 {
-	private static final String targetPath0 = "C:\\MATLAB\\";
-	private static final String targetPath1 = "C:\\MATLAB_DL\\";
+	private static String targetPath0 ;
+	private static String targetPath1 ;
 	
-	//private static final String targetPath0 = InstallerPath.modelPath;
-	//private static final String targetPath1 = InstallerPath.installingPath;
+	private static  String[] subPath0 = {"Delta\\", "Model\\", "Product\\"};
+	private static  String[] subPath1 = {"lib\\", "Simulink-Frontend\\"};
 	
-	private static final String[] subPath0 = {"Delta\\", "Model\\", "Product\\"};
-	private static final String[] subPath1 = {"lib\\", "Simulink-Frontend\\"};
 	
+	public static void main(String[] args) {
+		InstallerWelcome.callFrmWelcome();
+	}
 	
     public static void install() throws URISyntaxException
     {
+    	targetPath0 = InstallerPath.modelPath;
+    	targetPath1 = InstallerPath.installingPath;
+    	//System.out.println(targetPath0);
+		//System.out.println(targetPath1);
         try {
         		//Check if Simulink exists and has the right version 2011b
         		//possibly check where simulink using where command
@@ -86,17 +95,26 @@ public class ExtractAndStart
         		deleteDir(dir1);
         	}
         }
+        
+        //System.out.println("deleting files!");
+        
         //creating folders
         for(int i = 0; i < subPath0.length; i++)
         {
         	File dir = new File(targetPath0 + subPath0[i]);
         	dir.mkdirs();
         }
+        
+        //
+        
         for(int i = 0; i < subPath1.length; i++)
         {
         	File dir = new File(targetPath1 + subPath1[i]);
         	dir.mkdirs();
         }
+        
+        //System.out.println("creating files!");
+        
         //extracting files to folders
         try {
 			extractFile("delta-simulink-be-1.3.0-SNAPSHOT.jar", targetPath1 + subPath1[0]+ "delta-simulink-be-1.3.0-SNAPSHOT.jar");
@@ -109,14 +127,17 @@ public class ExtractAndStart
 			e.printStackTrace();
 		}
         
+        //generate Startup.m
+        generateStartup(targetPath1 ,targetPath0, InstallerVersion.DeltaSimulinkVersion);
+        
         //addpath('C:\MATLAB_DL\Simulink-Frontend')
         try {
-			Process process;
-			process = Runtime.getRuntime().exec("matlab -nodesktop -r \"addpath('C:\\MATLAB_DL\\Simulink-Frontend');savepath;exit;\"");
+        	Runtime.getRuntime().exec("matlab -nodesktop -r \"addpath('C:\\MATLAB_DL\\Simulink-Frontend');savepath;exit;\"");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
     }
     
     //iterated deleting files and folders
@@ -203,5 +224,49 @@ public class ExtractAndStart
         }
         out.close();
         in.close();
+    }
+    
+    //writing Startup.m file
+    private static void generateStartup(String installerDir, String modelDir, String version){
+    	PrintWriter writer = null;
+		try {
+			writer = new PrintWriter(installerDir+"Simulink-Frontend\\startup.m", "UTF-8");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	writer.println("% Delta-Simulink");
+    	writer.println("% Copyright (c) 2013, RIT, All rights reserved.");
+    	writer.println("% ");
+    	writer.println("% This project is free software; you can redistribute it and/or");
+    	writer.println("% modify it under the terms of the GNU Lesser General Public");
+    	writer.println("% License as published by the Free Software Foundation; either");
+    	writer.println("% version 3.0 of the License, or (at your option) any later version.");
+    	writer.println("% This library is distributed in the hope that it will be useful,");
+    	writer.println("% but WITHOUT ANY WARRANTY; without even the implied warranty of");
+    	writer.println("% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU");
+    	writer.println("% Lesser General Public License for more details.");
+    	writer.println("% ");
+        writer.println("% You should have received a copy of the GNU Lesser General Public");
+    	writer.println("% License along with this project.");
+    	writer.println("% ");
+    	writer.println("% " + version);
+    	writer.println("% ");
+	
+    	writer.println("addpath('" +installerDir + "Simulink-Frontend\\');");
+    	writer.println("DeltaSimulinkJARPath='" + installerDir + "lib\\delta-simulink-be-1.3.0-SNAPSHOT.jar';");
+    	writer.println("DeltaSimulinkClasspath='" + installerDir + "lib\\';");
+    	writer.println("model_dir='" + modelDir + "Model\\';");
+    	writer.println("delta_dir='" + modelDir + "Delta\\';");
+    	writer.println("conf_file='" + modelDir + "DefaultConfig.delta';");
+    	writer.println("product_dir='" + modelDir + "Product\\';");
+    	writer.println("appendClassPath(DeltaSimulinkJARPath);");
+    	writer.println("warning off MATLAB:dispatcher:nameConflict");
+    	
+    	writer.close(); 
+	
     }
 }

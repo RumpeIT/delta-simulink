@@ -59,7 +59,7 @@ public class InstallerWelcome {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void callFrmWelcome() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -110,12 +110,11 @@ public class InstallerWelcome {
 				
 				frmDeltaSimulinkSetup.dispose();
 				
-				InstallerLicense frmNext = new InstallerLicense();
-				frmNext.setVisible(true);
-								
-				//frmNext.setLocation(w, h);
-
-				//frmNext.setSize(width,height);
+				//InstallerLicense frmNext = new InstallerLicense();
+				//frmNext.setVisible(true);
+				
+				InstallerPath frmPath = new InstallerPath();
+				frmPath.setVisible(true);						
 			}
 		});
 		btnNext.setBounds(325, 354, 89, 27);

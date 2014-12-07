@@ -27,6 +27,8 @@ import javax.swing.border.EmptyBorder;
 
 
 
+
+
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class InstallerVersion extends JFrame {
 
 	private JPanel contentPane;
 	
-	public String DeltaSimulinkVersion;
+	public static String DeltaSimulinkVersion;
 	
 	final int width = 576;
 	final int height = 430;
@@ -99,8 +101,15 @@ public class InstallerVersion extends JFrame {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try {
+				InstallerVersion.this.dispose();
+	    		InstallerProgress.callFrmProgress();
+				//InstallerVersion.this.setEnabled(false);
+	    		
+				try {					
 					ExtractAndStart.install();
+					//installing finish
+			        InstallerProgress.frame.setVisible(false);
+					InstallerFinish.callFrmFinish();
 				} catch (URISyntaxException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

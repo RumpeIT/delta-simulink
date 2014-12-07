@@ -28,16 +28,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JRadioButton;
+import java.awt.Color;
+import javax.swing.JProgressBar;
 
 //import installer.InstallerWelcome;
 //import installer.InstallerPath;
 
-public class InstallerLicense extends JFrame {
+public class InstallerProgress extends JFrame {
 
 	private JPanel contentPane;
 	
@@ -45,15 +45,18 @@ public class InstallerLicense extends JFrame {
 	final int height = 430;
 	final int w = (Toolkit.getDefaultToolkit().getScreenSize().width - width) / 2;
 	final int h = (Toolkit.getDefaultToolkit().getScreenSize().height - height) / 2;
+	
+	public static InstallerProgress frame = new InstallerProgress();
 
 	/**
 	 * Launch the application.
 	 */
-	public static void callFrmLicense() {
+	public static void callFrmProgress() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InstallerLicense frame = new InstallerLicense();
+					//InstallerProgress frame = new InstallerProgress();
+					//frame = new InstallerProgress();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +68,7 @@ public class InstallerLicense extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InstallerLicense() {
+	public InstallerProgress() {
 		setTitle("DeltaSimulink Setup");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(w, h, width, height);
@@ -73,10 +76,10 @@ public class InstallerLicense extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		InstallerLicense.this.setResizable(false);
+		InstallerProgress.this.setResizable(false);
 		
-		InstallerLicense.this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		InstallerLicense.this.addWindowListener(new WindowAdapter() {
+		InstallerProgress.this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		InstallerProgress.this.addWindowListener(new WindowAdapter() {
 			   public void windowClosing(WindowEvent e) {
 				   int ans = JOptionPane.showConfirmDialog(null, "Setup is not complete. If you exit now, the program will not be installed.\n"
 							+ "You may run Setup again at another time to complete the installation.\n"
@@ -86,12 +89,12 @@ public class InstallerLicense extends JFrame {
 			   }
 		});
 		
-		JLabel lblNewLabel = new JLabel("Licence Agreement");
+		JLabel lblNewLabel = new JLabel("Installing");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel.setBounds(30, 11, 178, 19);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Please review the licence terms before installing DeltaSimulink.");
+		JLabel lblNewLabel_1 = new JLabel("Please wait \twhile Setup installs DeltaSimulink on your computer.");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(40, 33, 340, 14);
 		contentPane.add(lblNewLabel_1);
@@ -100,53 +103,9 @@ public class InstallerLicense extends JFrame {
 		separator.setBounds(0, 58, 570, 2);
 		contentPane.add(separator);
 		
-		JLabel lblPressDownTo = new JLabel("Press Page Down to see the rest of the Agreement.");
-		lblPressDownTo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblPressDownTo.setBounds(30, 67, 302, 19);
-		contentPane.add(lblPressDownTo);
-		
-		JLabel lblIfYouAccept = new JLabel("If you accept the terms of the agreement, select the first option below. You must accept the agreement");
-		lblIfYouAccept.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblIfYouAccept.setBounds(30, 233, 520, 19);
-		contentPane.add(lblIfYouAccept);
-		
-		JLabel lblThe = new JLabel("to install DeltaSimulink. Click Next to continue.");
-		lblThe.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblThe.setBounds(30, 263, 283, 14);
-		contentPane.add(lblThe);
-		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(0, 341, 570, 2);
 		contentPane.add(separator_1);
-		
-		JButton btnBack = new JButton("<Back");
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InstallerLicense.this.dispose();
-				InstallerWelcome.callFrmWelcome();
-			}
-		});
-		btnBack.setBounds(225, 354, 89, 27);
-		contentPane.add(btnBack);
-		
-		final JButton btnNext = new JButton("Next>");
-		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InstallerLicense.this.dispose();
-				
-				InstallerPath frmPath = new InstallerPath();
-				frmPath.setVisible(true);
-								
-				//frmPath.setLocation(w, h);
-
-				//frmPath.setSize(width,height);
-			}
-		});
-		btnNext.setEnabled(false);
-		btnNext.setBounds(325, 354, 89, 27);
-		contentPane.add(btnNext);
 		
 		final JButton btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -162,50 +121,6 @@ public class InstallerLicense extends JFrame {
 		btnCancel.setBounds(471, 354, 89, 27);
 		contentPane.add(btnCancel);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(30, 90, 501, 132);
-		contentPane.add(textArea);
-		
-		FileReader reader = null;
-		try {
-			reader = new FileReader(InstallerWelcome.class.getClassLoader().getResource("License.txt").getPath());
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			textArea.read(reader,"License.txt");
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
-		
-		JRadioButton rdbtnYes = new JRadioButton("I agree the terms in the License Agreement");
-		rdbtnYes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnNext.setEnabled(true);
-			}
-		});
-		rdbtnYes.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnYes.setBounds(30, 292, 283, 23);
-		contentPane.add(rdbtnYes);			
-		
-		JRadioButton rdbtnNo = new JRadioButton("I do not accept the terms in the License Agreement");
-		rdbtnNo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnNext.setEnabled(false);
-			}
-		});
-		rdbtnNo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnNo.setBounds(30, 315, 283, 23);
-		contentPane.add(rdbtnNo);
-		rdbtnNo.setSelected(true); // selected by default
-		
-		//
-		ButtonGroup rdbGroup=new ButtonGroup();
-		rdbGroup.add(rdbtnYes);
-		rdbGroup.add(rdbtnNo);
-		//
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBounds(461, 0, 89, 60);
@@ -222,6 +137,33 @@ public class InstallerLicense extends JFrame {
 		Image resizedImg = img.getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon deltaIcon = new ImageIcon(resizedImg);
 		lblLogo.setIcon(deltaIcon);
+		
+		JLabel lblNewLabel_2 = new JLabel("Delta Simulink is Free Software.");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_2.setBounds(189, 103, 202, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblPleaseVisti = new JLabel("Please visit");
+		lblPleaseVisti.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPleaseVisti.setBounds(231, 128, 70, 14);
+		contentPane.add(lblPleaseVisti);
+		
+		JLabel lblNewLabel_3 = new JLabel("http://www.se-rwth.de/");
+		lblNewLabel_3.setForeground(new Color(0, 139, 139));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(189, 153, 244, 27);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("for free updates.");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_4.setBounds(225, 191, 89, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblInstalling = new JLabel("Please wait a second, Setup is extracting files to your computer...");
+		lblInstalling.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblInstalling.setBounds(105, 247, 445, 19);
+		contentPane.add(lblInstalling);
+
 		
 	}
 }

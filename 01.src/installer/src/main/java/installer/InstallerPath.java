@@ -44,8 +44,8 @@ public class InstallerPath extends JFrame {
 	protected JTextField txtPath;
 	protected JTextField txtModel;
 	
-	static public String installingPath;
-	static public String modelPath;
+	public static String installingPath;
+	public static String modelPath;
 
 	/**
 	 * Launch the application.
@@ -93,7 +93,8 @@ public class InstallerPath extends JFrame {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				InstallerPath.this.dispose();
-				InstallerLicense.callFrmLicense();
+				//InstallerLicense.callFrmLicense();
+				InstallerWelcome.callFrmWelcome();
 			}
 		});
 		btnBack.setBounds(225, 354, 89, 27);
@@ -220,8 +221,11 @@ public class InstallerPath extends JFrame {
 			    chooserDL.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			    chooserDL.setAcceptAllFileFilterUsed(false);
 				if (chooserDL.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-				     txtPath.setText(chooserDL.getSelectedFile().getAbsolutePath());
-				    }
+					if(!chooserDL.getSelectedFile().getAbsolutePath().endsWith("\\"))
+						txtPath.setText(chooserDL.getSelectedFile().getAbsolutePath() + "\\MATLAB_DL\\");
+					else
+						txtPath.setText(chooserDL.getSelectedFile().getAbsolutePath() + "MATLAB_DL\\");
+				}
 			}
 		});
 		
@@ -235,7 +239,7 @@ public class InstallerPath extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		txtModel = new JTextField();
-		txtModel.setText("C:\\MATLAB\\");
+		txtModel.setText("C:\\MATLAB_ML\\");
 		txtModel.setBounds(39, 267, 345, 20);
 		contentPane.add(txtModel);
 		txtModel.setColumns(10);
@@ -248,7 +252,10 @@ public class InstallerPath extends JFrame {
 			    chooserModel.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			    chooserModel.setAcceptAllFileFilterUsed(false);
 			    if (chooserModel.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-				     txtModel.setText(chooserModel.getSelectedFile().getAbsolutePath());
+			    	if(!chooserModel.getSelectedFile().getAbsolutePath().endsWith("\\"))
+			    		txtModel.setText(chooserModel.getSelectedFile().getAbsolutePath() + "\\MATLAB_ML\\");
+					else
+						txtModel.setText(chooserModel.getSelectedFile().getAbsolutePath() + "MATLAB_ML\\");
 				    }
 			}
 		});
