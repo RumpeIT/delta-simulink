@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -20,11 +19,14 @@ public class ExtractAndStart
 	private static final String targetPath0 = "C:\\MATLAB\\";
 	private static final String targetPath1 = "C:\\MATLAB_DL\\";
 	
+	//private static final String targetPath0 = InstallerPath.modelPath;
+	//private static final String targetPath1 = InstallerPath.installingPath;
+	
 	private static final String[] subPath0 = {"Delta\\", "Model\\", "Product\\"};
 	private static final String[] subPath1 = {"lib\\", "Simulink-Frontend\\"};
 	
 	
-    public static void main(String[] args) throws URISyntaxException
+    public static void install() throws URISyntaxException
     {
         try {
         		//Check if Simulink exists and has the right version 2011b
@@ -137,6 +139,7 @@ public class ExtractAndStart
     private static boolean existedFile(String path)
     {
     	File target = new File(path);
+
     	if (target.exists())
     		return true;
     	else 
@@ -172,7 +175,7 @@ public class ExtractAndStart
     		{
     			File dir = new File(url.toURI());
     			String[] files = dir.list();
-    			System.out.printf("files[0]");
+    			//System.out.printf("files[0]");
     			for (int i = 0; i < files.length; i++) 
     			{
     				extractFile(filePath+files[i], targetPath1 + subPath1[1] + files[i]);
