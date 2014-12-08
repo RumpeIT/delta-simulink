@@ -42,127 +42,126 @@ public class Simulink2MontiArcConverterTest extends TestHelper {
 	    matlab.connect();
         assertTrue(matlab.isConnected());	
     }
-/*	
-//	@Test
-//	@Ignore
-//	public void testConvertModel() {
-//		String modelName = "SupportedCoreModelElements";
-//				
-//		Simulink2MontiArcConverter conv = new Simulink2MontiArcConverter(matlab, delegator);
-//		String montiArcModel = conv.convertModel(PATH_TO_MODELS, modelName);
-//		
-//		String expected = "package " + MontiArcStringBuilder.EXPORT_PACKAGE + ";" +
-//		                  "component SupportedCoreModelElements {\n\n" +
-//						  "port\n" +
-//						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
-//						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1,\n" +
-//						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2,\n" +
-//						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3;\n" +
-//						  "\n" +
-//						  "component DAbstractOperations Model;\n" +
-//						  "\n" +
-//						  "component Subsystem Subsystem {\n" +
-//						  "port\n" +
-//						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
-//						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1;\n" +
-//						  "component Subsystem Subsystem {\n" +
-//						  "port\n" +
-//						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
-//						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1;\n" +
-//						  "connect In1 -> Out1;" +
-//						  
-//						  "}\n" +
-//						  "component ToReplace Model;\n" +
-//
-//						  "connect Model.brakePressure1 -> Terminator;" +
-//
-//						  "connect Model.brakePressureOut1 -> Subsystem.In1;" +
-//
-//						  "connect Subsystem.Out1 -> Out1;" +
-//
-//						  "connect In1 -> Model.In1;" +
-//						  
-//						  "}\n" +
-//						  
-//						  "connect MathFunction -> Out3;" +
-//						  
-//						  "connect Model.brakePressure1 -> MathFunction;" +
-//						  
-//						  "connect Add -> Out2;" +
-//						  
-//						  "connect Model.brakePressureOut1 -> Add;" +
-//						  
-//						  "connect Model.brakePressureOut1 -> Add;" +
-//						  
-//						  "connect Subsystem.Out1 -> Out1;" +
-//						  
-//						  "connect In1 -> Model.In1;" +
-//						  
-//						  "connect In1 -> Subsystem.In1;" +
-//		"\n}\n";
-//		// fails due to not supported core elements (function blocks)
-//		compareMontiArcModelStrings(expected, montiArcModel);
-//	}
-//	
-//	@Test
-//	public void testConvertConnectors() {
-//		String modelName = "TestConnectors";
-//		
-//		Simulink2MontiArcConverter conv = new Simulink2MontiArcConverter(matlab, delegator);
-//		
-//		String montiArcModel = conv.convertModel(PATH_TO_MODELS, modelName);
-//		
-//		String expected = 
-//		        "package " + MontiArcStringBuilder.EXPORT_PACKAGE + ";" +
-//		        "component " + modelName + "{" +
-//						  
-//							  "port " +
-//							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1," +
-//							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In2," +
-//							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In3," +
-//							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1," +
-//							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2," +
-//							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3," +
-//							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out4," +
-//							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out5;" +
-//						  
-//							  "component TestReferenceModel Model;" +
-//							  	
-//							  "component Sub1 Sub1 {" +
-//							  	"port " +
-//							  		"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1," +
-//							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1," +
-//							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2," +
-//							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3," +
-//							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out4;" +
-//							  		
-//									"connect In1 -> Out4;" +
-//									"connect In1 -> Out2;" +
-//									"connect In1 -> Out3;" +
-//									"connect In1 -> Out1;" +
-//							  "}" +
-//						  
-//							  "connect In1 -> Out1;" +
-//							  "connect Sub1.Out1 -> Out5;" +
-//							  "connect Sub1.Out1 -> Out2;" +
-//							  "connect Model.Out1 -> Out3;" +
-//							  "connect In3 -> Out4;" +
-//							  "connect In3 -> Model.In1;" +
-//							  "connect In2 -> Sub1.In1;" +
-//						  
-//						  "}";
-//		
-//		// TODO test hierarchical Sub
-//		// TODO test Sub 2 Sub
-//		// TODO test Ref 2 Ref
-//		// TODO test Sub 2 Ref
-//		// TODO test Ref 2 Sub
-//		// TODO test Port with 2 outgoing connectors
-//		// TODO test incorrect connector
-//		
-//		compareMontiArcModelStrings(expected, montiArcModel);
-//	}
-*/	
+	
+	@Test
+	public void testConvertModel() {
+		String modelName = "SupportedCoreModelElements";
+				
+		Simulink2MontiArcConverter conv = new Simulink2MontiArcConverter(matlab, delegator);
+		String montiArcModel = conv.convertModel(PATH_TO_MODELS, modelName);
+		
+		String expected = "package " + MontiArcStringBuilder.EXPORT_PACKAGE + ";" +
+		                  "component SupportedCoreModelElements {\n\n" +
+						  "port\n" +
+						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
+						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1,\n" +
+						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2,\n" +
+						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3;\n" +
+						  "\n" +
+						  "component DAbstractOperations Model;\n" +
+						  "\n" +
+						  "component Subsystem Subsystem {\n" +
+						  "port\n" +
+						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
+						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1;\n" +
+						  "component Subsystem Subsystem {\n" +
+						  "port\n" +
+						  "  in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1,\n" +
+						  "  out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1;\n" +
+						  "connect In1 -> Out1;" +
+						  
+						  "}\n" +
+						  "component ToReplace Model;\n" +
+
+						  "connect Model.brakePressure1 -> Terminator;" +
+
+						  "connect Model.brakePressureOut1 -> Subsystem.In1;" +
+
+						  "connect Subsystem.Out1 -> Out1;" +
+
+						  "connect In1 -> Model.In1;" +
+						  
+						  "}\n" +
+						  
+						  "connect MathFunction -> Out3;" +
+						  
+						  "connect Model.brakePressure1 -> MathFunction;" +
+						  
+						  "connect Add -> Out2;" +
+						  
+					      "connect Model.brakePressureOut1 -> Add;" +
+					  
+						  "connect Model.brakePressureOut1 -> Add;" +
+						  
+						  "connect Subsystem.Out1 -> Out1;" +
+						  
+						  "connect In1 -> Model.In1;" +
+						  
+						  "connect In1 -> Subsystem.In1;" +
+		"\n}\n";
+		// fails due to not supported core elements (function blocks)
+		compareMontiArcModelStrings(expected, montiArcModel);
+	}
+
+	@Test
+	public void testConvertConnectors() {
+		String modelName = "TestConnectors";
+		
+		Simulink2MontiArcConverter conv = new Simulink2MontiArcConverter(matlab, delegator);
+		
+		String montiArcModel = conv.convertModel(PATH_TO_MODELS, modelName);
+		
+		String expected = 
+		        "package " + MontiArcStringBuilder.EXPORT_PACKAGE + ";" +
+		        "component " + modelName + "{" +
+						  
+							  "port " +
+							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1," +
+							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In2," +
+							  	"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In3," +
+							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1," +
+							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2," +
+							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3," +
+							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out4," +
+							  	"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out5;" +
+						  
+							  "component TestReferenceModel Model;" +
+							  	
+							  "component Sub1 Sub1 {" +
+							  	"port " +
+							  		"in " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " In1," +
+							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out1," +
+							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out2," +
+							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out3," +
+							  		"out " + MontiArcStringBuilder.DUMMY_PORT_TYPE + " Out4;" +
+							  		
+									"connect In1 -> Out4;" +
+									"connect In1 -> Out2;" +
+									"connect In1 -> Out3;" +
+									"connect In1 -> Out1;" +
+							  "}" +
+						  
+							  "connect In1 -> Out1;" +
+							  "connect Sub1.Out1 -> Out5;" +
+							  "connect Sub1.Out1 -> Out2;" +
+							  "connect Model.Out1 -> Out3;" +
+							  "connect In3 -> Out4;" +
+							  "connect In3 -> Model.In1;" +
+							  "connect In2 -> Sub1.In1;" +
+						  
+						  "}";
+		
+		// TODO test hierarchical Sub
+		// TODO test Sub 2 Sub
+		// TODO test Ref 2 Ref
+		// TODO test Sub 2 Ref
+		// TODO test Ref 2 Sub
+		// TODO test Port with 2 outgoing connectors
+		// TODO test incorrect connector
+		
+		compareMontiArcModelStrings(expected, montiArcModel);
+	}
+	
 	@Test
 	public void testConvertDeltaModels() {
 	    String modelName = "SupportedDeltaModelElements";
