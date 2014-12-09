@@ -12,14 +12,19 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
-
-% addpath('C:\MATLAB_DL\Simulink-Frontend');
-addpath('D:\WORKSPACE\OpenDeltaSimulin\01.src\Simulink-Frontend');
+global Delta_Simulink_Version;
+global DeltaSimulinkJARPath;
+global DeltaSimulinkClasspath;
+global model_dir;
+global delta_dir;
+global conf_file;
+global product_dir;
 DeltaSimulinkJARPath='C:\MATLAB_DL\lib\delta-simulink-be-1.3.0-SNAPSHOT.jar';
 DeltaSimulinkClasspath='C:\MATLAB_DL\lib\';
 model_dir='C:\MATLAB\Model';
 delta_dir='C:\MATLAB\Delta';
 conf_file='C:\MATLAB\DefaultConfig.delta';
 product_dir='C:\MATLAB\Product';
+Delta_Simulink_Version='1.0';
 appendClassPath(DeltaSimulinkJARPath);
 warning off MATLAB:dispatcher:nameConflict

@@ -12,24 +12,6 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
-function deltachk()
-   global ckMode;
-   
-   mymodus     = ckMode;
-  
-   %TODO Define light Blue see: for tutorial
-   mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','red','blue','orangeWhite','black'});
-   parent_models=find_system('type', 'block_diagram');
-   for index=1:numel(parent_models)
-    parent_model=parent_models(index);
-    blocks=find_system(parent_model,'FindAll','on', 'Type', 'Block');
-    lines=find_system(parent_model,'FindAll','on', 'Type', 'Line');
-    if(strcmp(mymodus,'delta')==1)
-        deltafyModel(blocks,lines);
-    elseif (strcmp(mymodus,'normal')==1)
-    normalizeModel(blocks,lines);
-   
-   end
-   end
-
+function [model_dir]=getModel_dir()
+model_dir='C:\MATLAB_ML\Model\';
 end

@@ -20,7 +20,7 @@ function sl_customization(cm)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 global ckMode;
-global m;
+
 %set_param('mymodel/Test', 'OpenFcn', 'testvar')
 %if(lineMap==[])
 
@@ -86,8 +86,10 @@ end
 function showDeltaCallBack(inArgs)
 m=mc.deltasimulink.simulink2montiarc.Simulink2MontiArcConverterHelper();
 if(~isempty(gcs))
-%m.convert(pwd, gcs, 'out.txt')
-edit out.txt
+uuid = char(java.util.UUID.randomUUID);
+outfile=strcat('tmp/',uuid,'.txt');
+m.convert(pwd, gcs, outfile);
+open(outfile);
 end
 end
 
@@ -114,14 +116,20 @@ function slDeltaMode(inArgs)
    ckMode=mymodus;
    %TODO Define light Blue see: for tutorial
    mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','red','blue','orangeWhite','black'});
-   parent_model=getParentModel(gcs);
-   blocks=find_system(parent_model,'FindAll','on', 'Type', 'Block');
-   lines=find_system(parent_model,'FindAll','on', 'Type', 'Line');
-   if(strcmp(mymodus,'delta')==1)
-    deltafyModel(blocks,lines);
-   elseif (strcmp(mymodus,'normal')==1)
-   normalizeModel(blocks,lines);
+   %parent_model=getParentModel(gcs);
+   %blocks=find_system(parent_model,'FindAll','on', 'Type', 'Block');
+   %lines=find_system(parent_model,'FindAll','on', 'Type', 'Line');
+   parent_models=find_system('type', 'block_diagram', 'open','on');
+   for index=1:numel(parent_models)
+    parent_model=parent_models(index);
+    blocks=find_system(parent_model,'FindAll','on', 'Type', 'Block');
+    lines=find_system(parent_model,'FindAll','on', 'Type', 'Line');
+    if(strcmp(mymodus,'delta')==1)
+        deltafyModel(blocks,lines);
+    elseif (strcmp(mymodus,'normal')==1)
+    normalizeModel(blocks,lines);
    
+   end
    end
 end
 
@@ -140,7 +148,8 @@ global ckMode;
   mousePosition = get(0,'PointerLocation');
   selectedBlocks=0;
   selectedConnections=0;
-  
+  %if (strcmp(Delta_Simulink_Version,'1.0'))
+  %end
   availableOperations = cellstr({'add','remove','modify','replace','reset'});
   %childFunc=cell(1, length(availableOperations));
   for operation=1:length(availableOperations),  
@@ -170,7 +179,15 @@ mapObj = containers.Map({'add','remove','modify','replace','reset'}, {'green','r
  lines=find_system( 'FindAll','on',  'Selected', 'on', 'Type', 'Line');
  sys_handle=get_param(gcs,'handle');
  blocks= blocks(find(blocks~=sys_handle));
+ [status,list]=chkBlocks(blocks,opName);
 %% Change Color
+if status~=0
+    warnmsg={'The following blocks are not compatible with the Delta operation you chose:'};
+    warnmsg=[warnmsg,list];
+    warnmsg=[warnmsg,{'Please remove them from the selection or choose another operation'}];
+    warnmsg=[warnmsg,{'DeltaSimulink 2.0 will support arbitrary Deltas '}];
+    warndlg(warnmsg);
+else
 for block=1:length(blocks),
     
     if(not(isempty(get_param(blocks(block),'UserData'))))
@@ -214,5 +231,9 @@ for line=1:length(lines),
     end
     highlight_block(get_param(lines(line),'SrcBlockHandle'));
 end
+
+    
+end
+
       
 end
