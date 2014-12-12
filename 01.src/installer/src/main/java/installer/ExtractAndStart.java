@@ -226,7 +226,7 @@ public class ExtractAndStart
         in.close();
     }
     
-    //writing Startup.m file
+    //writing startup.m file
     private static void generateStartup(String installerDir, String modelDir, String version){
     	PrintWriter writer = null;
 		try {
