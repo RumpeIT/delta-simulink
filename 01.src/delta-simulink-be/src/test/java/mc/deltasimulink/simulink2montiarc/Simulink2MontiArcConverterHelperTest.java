@@ -25,7 +25,7 @@ public class Simulink2MontiArcConverterHelperTest {
 	@Test
 	public void test() {
 		Simulink2MontiArcConverterHelper s2ma=new Simulink2MontiArcConverterHelper();
-		s2ma.convert("C:\\MATLAB\\Delta", "DAntiLockBrakingSystem", "out.txt");
+		s2ma.convert("C:\\MATLAB\\Delta", "DReplaceModel", "out.txt");
 	}
 
 }

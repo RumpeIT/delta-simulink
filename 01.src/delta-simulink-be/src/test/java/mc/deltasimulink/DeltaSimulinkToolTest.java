@@ -175,7 +175,7 @@ public class DeltaSimulinkToolTest extends TestHelper {
         assertFalse(tool.slHandler.hasError());
         assertFalse(tool.slHandler.hasWarning());
     }
-    
+    @Ignore
     @Test
     public void testRoundtripTWD() {
         DeltaSimulinkTool tool = new DeltaSimulinkTool();
