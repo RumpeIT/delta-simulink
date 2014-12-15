@@ -17,6 +17,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class ExtractAndStart
 {
@@ -28,6 +29,13 @@ public class ExtractAndStart
 	
 	
 	public static void main(String[] args) {
+		try {
+		      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    }
+		    catch (Exception e) {
+		      System.err.println("Error setting native LAF: " + e);
+		    }
+
 		InstallerWelcome.callFrmWelcome();
 	}
 	
@@ -129,10 +137,11 @@ public class ExtractAndStart
         
         //generate Startup.m
         generateStartup(targetPath1 ,targetPath0, InstallerVersion.DeltaSimulinkVersion);
+
         
         //addpath('C:\MATLAB_DL\Simulink-Frontend')
         try {
-        	Runtime.getRuntime().exec("matlab -nodesktop -r \"addpath('C:\\MATLAB_DL\\Simulink-Frontend');savepath;exit;\"");
+        	Runtime.getRuntime().exec("matlab -nodesktop -r \"addpath('"+targetPath1+"'Simulink-Frontend');savepath;exit;\"");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -253,10 +262,17 @@ public class ExtractAndStart
         writer.println("% You should have received a copy of the GNU Lesser General Public");
     	writer.println("% License along with this project.");
     	writer.println("% ");
-    	writer.println("% " + version);
     	writer.println("% ");
-	
-    	writer.println("addpath('" +installerDir + "Simulink-Frontend\\');");
+    	writer.println("global Delta_Simulink_Version;");
+    	writer.println("global DeltaSimulinkJARPath;");
+    	writer.println("global DeltaSimulinkClasspath;");
+    	writer.println("global model_dir;");
+    	writer.println("global delta_dir;");
+    	writer.println("global conf_file;");
+    	writer.println("global product_dir;");
+    	writer.println("global DeltaSimulinkJARPath;");
+    	
+    	writer.println("Delta_Simulink_Version='"+ version +"';");
     	writer.println("DeltaSimulinkJARPath='" + installerDir + "lib\\delta-simulink-be-1.3.0-SNAPSHOT.jar';");
     	writer.println("DeltaSimulinkClasspath='" + installerDir + "lib\\';");
     	writer.println("model_dir='" + modelDir + "Model\\';");
@@ -269,4 +285,13 @@ public class ExtractAndStart
     	writer.close(); 
 	
     }
+    
+
+    
+    
+    
+    
+    
+
+    
 }

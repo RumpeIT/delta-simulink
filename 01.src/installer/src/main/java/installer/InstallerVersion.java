@@ -139,7 +139,7 @@ public class InstallerVersion extends JFrame {
 		rdbtnDS1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnNext.setEnabled(true);
-				DeltaSimulinkVersion = "DeltaSimulinkVersion='1.0'";
+				DeltaSimulinkVersion = "1.0";
 				//System.out.println(DeltaSimulinkVersion);
 			}
 		});
@@ -151,7 +151,7 @@ public class InstallerVersion extends JFrame {
 		rdbtnDS2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnNext.setEnabled(true);
-				DeltaSimulinkVersion = "DeltaSimulinkVersion='2.0'";
+				DeltaSimulinkVersion = "2.0";
 				//System.out.println(DeltaSimulinkVersion);
 			}
 		});
