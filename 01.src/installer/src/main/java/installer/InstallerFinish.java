@@ -136,7 +136,7 @@ public class InstallerFinish {
 		lblNewLabel.setBounds(257, 75, 239, 40);
 		frmSetupFinish.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Setup has finished installing GIMP on your computer. The");
+		JLabel lblNewLabel_1 = new JLabel("Setup has finished installing Delta-Simulink on your computer. The");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(247, 155, 294, 27);
 		frmSetupFinish.getContentPane().add(lblNewLabel_1);

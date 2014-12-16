@@ -13,5 +13,6 @@
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
 function [version]=getDSVersion()
-version='1.0';
+global Delta_Simulink_Version;
+version=Delta_Simulink_Version;
 end

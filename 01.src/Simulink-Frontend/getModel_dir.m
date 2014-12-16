@@ -12,6 +12,7 @@
 % 
 % You should have received a copy of the GNU Lesser General Public
 % License along with this project.
-function [model_dir]=getModel_dir()
-model_dir='C:\MATLAB_ML\Model\';
+function [model_dir_return]=getModel_dir()
+global model_dir;
+model_dir_return=model_dir;
 end
