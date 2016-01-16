@@ -1,0 +1,6 @@
+deltaconfig ABS_TWD {
+    DAntiLockBrakingSystem,
+    DPreTwoWheel,
+    DTwoWheel,
+    DPostTwoWheel
+}

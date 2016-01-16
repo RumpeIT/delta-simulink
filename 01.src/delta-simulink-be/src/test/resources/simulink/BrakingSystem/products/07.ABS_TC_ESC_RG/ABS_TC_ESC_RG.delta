@@ -1,0 +1,8 @@
+deltaconfig ABS_TC_ESC_RG {
+    DAntiLockBrakingSystem,
+    DPreTractionControl,
+    DTractionControl,
+    DElectronicStabilityControl,
+    DPreReductionGear,
+    DReductionGear
+}
