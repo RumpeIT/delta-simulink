@@ -27,7 +27,7 @@ instructions in the ICLA on how to submit it.
 
 ## Code Guidelines
 Please use [se-eclipse-javastyle.epf](./00.org/conventions/se-eclipse-javastyle.epf) to 
-format your code if possible. <br/>
+format your code if this is possible. <br/>
 Only contribute code which passes all unit tests.
 
 
