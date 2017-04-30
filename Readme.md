@@ -41,7 +41,7 @@ Please use the GitHub project [issue tracker](https://github.com/RumpeIT/delta-s
 
 ## License
 * [LGPL V3.0](https://github.com/RumpeIT/delta-simulink/blob/master/00.org/Licenses/LICENSE-LGPL.md)
-* Allows us free use.
+* Allows us free use of the software.
 
 ## Release notes
 This product includes software (Freemarker) developed by the Visigoth Software 
