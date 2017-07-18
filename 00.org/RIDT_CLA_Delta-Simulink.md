@@ -1,4 +1,4 @@
-﻿#RIT Contributor License Agreement V 2.0
+﻿#RIDT Contributor License Agreement V 2.0
 
 In order to clarify the intellectual property license granted with 
 Contributions from any person or entity, the Delta-Simulink Project 
@@ -21,7 +21,7 @@ right, title, and interest in and to Your Contributions.
 
 1. Definitions. 
 
-"RIT" shall mean the duly registered company under German law as RIT 
+"RIDT" shall mean the duly registered company under German law as RIDT 
 GmbH whose principal place of business is Schoenauer Friede 80 
 D-52072 Aachen, Germany. 
 
@@ -53,7 +53,7 @@ but excluding communication that is conspicuously marked or otherwise
 designated in writing by You as "Not a Contribution." 
 
 2. Grant of Copyright License. Subject to the terms and conditions of 
-this Agreement, You hereby grant to the RIT and to recipients of 
+this Agreement, You hereby grant to the RIDT and to recipients of 
 software distributed by the Project a perpetual, worldwide, 
 non-exclusive, no-charge, royalty-free, irrevocable copyright license 
 to reproduce, prepare derivative works of, publicly display, publicly 
@@ -61,7 +61,7 @@ perform, sublicense, and distribute Your Contributions and such
 derivative works. 
 
 3. Grant of Patent License. Subject to the terms and conditions of  
-this Agreement, You hereby grant to the RIT and to recipients of 
+this Agreement, You hereby grant to the RIDT and to recipients of 
 software distributed by the Project a perpetual, worldwide, 
 non-exclusive, no-charge, royalty-free, irrevocable (except as stated 
 in this section) patent license to make, have made, use, offer to 

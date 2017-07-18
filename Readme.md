@@ -20,7 +20,7 @@ The `master` branch is the latest (stable) release. The `development` branch is
 where the development takes place.<br/>
 If you want to contribute code, please issue a pull request (on our 
 [GitHub project site](https://github.com/RumpeIT/delta-simulink)) into the `development` branch.<br/>
-Note: You will need to add your name to the [ICLA](./00.org/RIT_CLA_Delta-Simulink.md) (Individual Contributor 
+Note: You will need to add your name to the [ICLA](./00.org/RIDT_CLA_Delta-Simulink.md) (Individual Contributor 
 License Agreement) for your contribution to be accepted. Please follow the 
 instructions in the ICLA on how to submit it.
 

@@ -34,7 +34,7 @@ import mc.deltasimulink.helper.SimulinkNameHelper;
 
 /*******************************************************************************
  * Delta-Simulink
- * Copyright (c) 2013, RIT, All rights reserved.
+ * Copyright (c) 2013, RIDT, All rights reserved.
  *
  * This project is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

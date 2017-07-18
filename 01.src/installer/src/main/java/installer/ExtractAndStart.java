@@ -248,7 +248,7 @@ public class ExtractAndStart
 			e.printStackTrace();
 		}
     	writer.println("% Delta-Simulink");
-    	writer.println("% Copyright (c) 2013, RIT, All rights reserved.");
+    	writer.println("% Copyright (c) 2013, RIDT, All rights reserved.");
     	writer.println("% ");
     	writer.println("% This project is free software; you can redistribute it and/or");
     	writer.println("% modify it under the terms of the GNU Lesser General Public");
