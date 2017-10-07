@@ -2,7 +2,8 @@
 Delta-Simulink [[1]] is an extension for simulink to model variability using 
 delta modelling.<br/>
 A description of Delta-Simulink as well as an overview of its architecture can 
-be found at [[1]]. If you are interested in the topic of software varibility you
+be found at [[1]].
+If you are interested in the topic of software varibility you
 can find an overview of our scientific work on that topic at [[2]].
 
 
